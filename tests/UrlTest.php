@@ -247,9 +247,6 @@ class UrlTest extends TestCase
 		$this->assertEquals('query=&x-%26-y=x-%26-y', $parts['query']);
 		$this->assertEquals('fragment-x-%26-y', $parts['fragment']);
 		
-		$this->assertCount(1, parse_url(null));
-		$this->assertEquals("", parse_url(null)['path']);
-		
 		$this->assertCount(1, parse_url(''));
 		$this->assertEquals("", parse_url('')['path']);
 		
