@@ -16,7 +16,7 @@ class UrlQuery implements UrlComponentInterface, \Countable, \IteratorAggregate
 	 *
 	 * @var array
 	 */
-	private $params = [];
+	private array $params = [];
 
 	public function __construct()
 	{}
@@ -161,12 +161,10 @@ class UrlQuery implements UrlComponentInterface, \Countable, \IteratorAggregate
 
 	/**
 	 * Iterate over all parameters.
-	 * Note that all parameters are arrays that contain one more more values.
-	 *
-	 * @return \ArrayIterator
+	 * Note that all parameters are arrays that contain one or more values.
 	 */
-	public function getIterator()
-	{
+	public function getIterator(): \Traversable
+    {
 		return new \ArrayIterator($this->params);
 	}
 
@@ -179,7 +177,7 @@ class UrlQuery implements UrlComponentInterface, \Countable, \IteratorAggregate
 	 * @param string $key
 	 * @return int
 	 */
-	public function count($key = null)
+	public function count($key = null): int
 	{
 		if (is_null($key)) {
 			return count($this->params);
